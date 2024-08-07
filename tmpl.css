@@ -1,0 +1,40 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .navbar-nav .nav-link {
+    padding: 0.75em 1.25em;
+    transition: background-color 0.3s ease;
+}
+
+nav .navbar-nav .nav-link:hover {
+    background-color: #4CAF50;
+}
+
+main {
+    padding: 2em 0;
+}
+
+section {
+    padding: 2em;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1em;
+}

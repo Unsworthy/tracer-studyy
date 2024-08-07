@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracer Study SMK</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="tmpl.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="bg-success text-white text-center py-4">
+        <h1>Dashboard Tracer Study Alumni SMK</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tracer Study</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#data-alumni">Data Alumni</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#statistik">Statistik</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html" id="loginMenu">Login</a></li>
+                    <li class="nav-item dropdown d-none" id="profileMenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Profil
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#profil">Lihat Profil</a>
+                            <a class="dropdown-item" href="#" id="logoutButton">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container my-4">
+        <section id="home" class="mb-4">
+            <h2 class="text-success">Selamat Datang di Dashboard Tracer Study</h2>
+            <p>Gunakan dashboard ini untuk melacak kemana alumni melanjutkan pendidikan atau karir mereka.</p>
+        </section>
+        <section id="data-alumni" class="mb-4">
+            <h2 class="text-success">Data Alumni</h2>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nama</th>
+                        <th>Tahun Lulus</th>
+                        <th>Jurusan</th>
+                        <th>Melanjutkan ke</th>
+                        <th>Pekerjaan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- data alumni yang di input dan di simpan di database -->
+                </tbody>
+            </table>
+        </section>
+        <section id="statistik" class="mb-4">
+            <h2 class="text-success">Statistik</h2>
+            <div id="chart-container">
+                <canvas id="alumniChart"></canvas>
+            </div>
+        </section>
+        <section id="profil" class="mb-4 d-none">
+            <h2 class="text-success">Profil Pengguna</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img id="profilePicture" src="default-profile.png" alt="Profile Picture" class="rounded-circle" width="150">
+                        <h3 id="profileName">Nama Pengguna</h3>
+                        <p id="profileEmail">email@example.com</p>
+                    </div>
+                    <div class="text-center">
+                        <input type="file" id="uploadProfilePicture" accept="image/*" class="d-none">
+                        <button class="btn btn-success" onclick="document.getElementById('uploadProfilePicture').click();">Ganti Foto Profil</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="kontak" class="mb-4">
+            <h2 class="text-success">Kontak</h2>
+            <p>Untuk informasi lebih lanjut, hubungi kami di <a href="mailto:info@smk-tracerstudy.com">info@smk-tracerstudy.com</a>.</p>
+        </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 SMK Tracer Study</p>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
