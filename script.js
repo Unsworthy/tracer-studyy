@@ -61,3 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
         reader.readAsDataURL(file);
     });
 });
+gsap.from("header", { duration: 1, y: -50, opacity: 0 });
+gsap.from("nav ul li", { duration: 0.5, y: 30, opacity: 0, stagger: 0.2 });
+gsap.from("main section", { duration: 1, y: 50, opacity: 0, stagger: 0.3 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Semua logika JavaScript untuk login, logout, dan profil sama seperti sebelumnya
+});
+

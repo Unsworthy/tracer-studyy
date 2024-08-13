@@ -4,94 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracer Study SMK</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="tmpl.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/gsap@3.7.1/dist/gsap.min.js"></script>
+    <script src="scripts.js"></script>
 </head>
-<body>
-    <header class="bg-success text-white text-center py-4">
-        <h1>Dashboard Tracer Study Alumni SMK</h1>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-green-600 text-white text-center py-6">
+        <h1 class="text-4xl font-bold">Dashboard Tracer Study Alumni SMK</h1>
     </header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Tracer Study</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#data-alumni">Data Alumni</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#statistik">Statistik</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html" id="loginMenu">Login</a></li>
-                    <li class="nav-item dropdown d-none" id="profileMenu">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Profil
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#profil">Lihat Profil</a>
-                            <a class="dropdown-item" href="#" id="logoutButton">Logout</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+    <nav class="bg-gray-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-lg font-semibold">Tracer Study</div>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="hover:text-green-400">Home</a></li>
+                <li><a href="#data-alumni" class="hover:text-green-400">Data Alumni</a></li>
+                <li><a href="#statistik" class="hover:text-green-400">Statistik</a></li>
+                <li><a href="#kontak" class="hover:text-green-400">Kontak</a></li>
+                <li><a href="login.html" id="loginMenu" class="hover:text-green-400">Login</a></li>
+                <li class="hidden" id="profileMenu">
+                    <a href="#" class="dropdown-toggle hover:text-green-400">Profil</a>
+                    <ul class="hidden">
+                        <li><a href="#profil" class="block px-4 py-2">Lihat Profil</a></li>
+                        <li><a href="#" id="logoutButton" class="block px-4 py-2">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </nav>
-    <main class="container my-4">
-        <section id="home" class="mb-4">
-            <h2 class="text-success">Selamat Datang di Dashboard Tracer Study</h2>
-            <p>Gunakan dashboard ini untuk melacak kemana alumni melanjutkan pendidikan atau karir mereka.</p>
+    <main class="container mx-auto mt-6 p-4">
+        <section id="home" class="mb-8">
+            <h2 class="text-3xl font-semibold text-green-600">Selamat Datang di Dashboard Tracer Study</h2>
+            <p class="mt-4">Gunakan dashboard ini untuk melacak kemana alumni melanjutkan pendidikan atau karir mereka.</p>
         </section>
-        <section id="data-alumni" class="mb-4">
-            <h2 class="text-success">Data Alumni</h2>
-            <table class="table table-striped">
-                <thead class="thead-dark">
+        <section id="data-alumni" class="mb-8">
+            <h2 class="text-3xl font-semibold text-green-600">Data Alumni</h2>
+            <table class="min-w-full bg-white border border-gray-300 mt-4">
+                <thead>
                     <tr>
-                        <th>Nama</th>
-                        <th>Tahun Lulus</th>
-                        <th>Jurusan</th>
-                        <th>Melanjutkan ke</th>
-                        <th>Pekerjaan</th>
+                        <th class="py-2 px-4 border-b">Nama</th>
+                        <th class="py-2 px-4 border-b">Tahun Lulus</th>
+                        <th class="py-2 px-4 border-b">Jurusan</th>
+                        <th class="py-2 px-4 border-b">Melanjutkan ke</th>
+                        <th class="py-2 px-4 border-b">Pekerjaan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- data alumni yang di input dan di simpan di database sistem -->
+                    <!-- Data alumni akan dimasukkan di sini -->
                 </tbody>
             </table>
         </section>
-        <section id="statistik" class="mb-4">
-            <h2 class="text-success">Statistik</h2>
-            <div id="chart-container">
+        <section id="statistik" class="mb-8">
+            <h2 class="text-3xl font-semibold text-green-600">Statistik</h2>
+            <div id="chart-container" class="mt-4">
                 <canvas id="alumniChart"></canvas>
             </div>
         </section>
-        <section id="profil" class="mb-4 d-none">
-            <h2 class="text-success">Profil Pengguna</h2>
-            <div class="card">
-                <div class="card-body">
-                    <div class="text-center mb-4">
-                        <img id="profilePicture" src="default-profile.png" alt="Profile Picture" class="rounded-circle" width="150">
-                        <h3 id="profileName">Nama Pengguna</h3>
-                        <p id="profileEmail">email@example.com</p>
-                    </div>
-                    <div class="text-center">
-                        <input type="file" id="uploadProfilePicture" accept="image/*" class="d-none">
-                        <button class="btn btn-success" onclick="document.getElementById('uploadProfilePicture').click();">Ganti Foto Profil</button>
-                    </div>
+        <section id="profil" class="mb-8 hidden">
+            <h2 class="text-3xl font-semibold text-green-600">Profil Pengguna</h2>
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <div class="text-center mb-4">
+                    <img id="profilePicture" src="default-profile.png" alt="Profile Picture" class="rounded-full w-32 h-32 mx-auto">
+                    <h3 id="profileName" class="mt-4 text-2xl font-medium">Nama Pengguna</h3>
+                    <p id="profileEmail" class="text-gray-600">email@example.com</p>
+                </div>
+                <div class="text-center">
+                    <input type="file" id="uploadProfilePicture" accept="image/*" class="hidden">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded" onclick="document.getElementById('uploadProfilePicture').click();">Ganti Foto Profil</button>
                 </div>
             </div>
         </section>
-        <section id="kontak" class="mb-4">
-            <h2 class="text-success">Kontak</h2>
-            <p>Untuk informasi lebih lanjut, hubungi kami di <a href="mailto:info@smk-tracerstudy.com">info@smk-tracerstudy.com</a>.</p>
+        <section id="kontak" class="mb-8">
+            <h2 class="text-3xl font-semibold text-green-600">Kontak</h2>
+            <p>Untuk informasi lebih lanjut, hubungi kami di <a href="mailto:info@smk-tracerstudy.com" class="text-green-600 underline">info@smk-tracerstudy.com</a>.</p>
         </section>
     </main>
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="bg-gray-900 text-white text-center py-4">
         <p>&copy; 2024 SMK Tracer Study</p>
     </footer>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
