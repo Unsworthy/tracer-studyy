@@ -5,7 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Tracer Study SMK</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<link rel="stylesheet" href="logres.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc;
+        }
+        .login-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .bg-primary {
+            background-color: #3182ce;
+        }
+        .btn-primary {
+            background-color: #38b2ac;
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #2c7a7b;
+        }
+    </style>
 </head>
 <body class="flex items-center justify-center h-screen">
     <div class="login-card bg-white p-8 w-full max-w-md">
@@ -20,7 +45,7 @@
                 <input type="password" id="password" name="password" class="w-full px-3 py-2 border border-gray-300 rounded" required>
             </div>
             <button type="submit" class="btn-primary w-full py-2 rounded">Login</button>
-            <p class="mt-4 text-gray-600 text-center">Belum punya akun? <a href="registrasi.html" class="text-primary hover:underline">Register</a></p>
+            <p class="mt-4 text-gray-600 text-center">Belum punya akun? <a href="register.html" class="text-primary hover:underline">Register</a></p>
         </form>
     </div>
 </body>

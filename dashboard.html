@@ -1,130 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracer Study SMK</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/gsap@3.7.1/dist/gsap.min.js"></script>
-    <script src="scripts.js"></script>
-  </head>
-  <body class="bg-gray-100 text-gray-800">
-    <header class="bg-green-600 text-white text-center py-6">
-      <h1 class="text-4xl font-bold">Dashboard Tracer Study Alumni SMK</h1>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc;
+        }
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        .navbar-link {
+            color: #4a5568;
+            transition: color 0.3s ease-in-out;
+        }
+        .navbar-link:hover {
+            color: #38b2ac;
+        }
+        .profile-picture {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            border: 4px solid #38b2ac;
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-picture:hover {
+            transform: scale(1.1);
+        }
+        .bg-primary {
+            background-color: #3182ce;
+        }
+        .text-primary {
+            color: #3182ce;
+        }
+        .btn-primary {
+            background-color: #38b2ac;
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #2c7a7b;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white">
+        <div class="container mx-auto py-6 text-center">
+            <h1 class="header-title">Dashboard Tracer Study Alumni SMK</h1>
+        </div>
     </header>
-    <nav class="bg-gray-900 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="text-lg font-semibold">Tracer Study</div>
-        <ul class="flex space-x-6">
-          <li><a href="#home" class="hover:text-green-400">Home</a></li>
-          <li>
-            <a href="#data-alumni" class="hover:text-green-400">Data Alumni</a>
-          </li>
-          <li>
-            <a href="#statistik" class="hover:text-green-400">Statistik</a>
-          </li>
-          <li><a href="#kontak" class="hover:text-green-400">Kontak</a></li>
-          <li>
-            <a href="login.html" id="loginMenu" class="hover:text-green-400"
-              >Login</a
-            >
-          </li>
-          <li class="hidden" id="profileMenu">
-            <a href="#" class="dropdown-toggle hover:text-green-400">Profil</a>
-            <ul class="hidden">
-              <li>
-                <a href="#profil" class="block px-4 py-2">Lihat Profil</a>
-              </li>
-              <li>
-                <a href="#" id="logoutButton" class="block px-4 py-2">Logout</a>
-              </li>
+    <nav class="bg-white shadow-sm">
+        <div class="container mx-auto flex justify-between items-center py-4">
+            <div class="text-lg font-semibold text-primary">Tracer Study</div>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="navbar-link hover:text-primary">Home</a></li>
+                <li><a href="#data-alumni" class="navbar-link hover:text-primary">Data Alumni</a></li>
+                <li><a href="#statistik" class="navbar-link hover:text-primary">Statistik</a></li>
+                <li><a href="#kontak" class="navbar-link hover:text-primary">Kontak</a></li>
+                <li><a href="login.html" id="loginMenu" class="navbar-link hover:text-primary">Login</a></li>
+                <li class="hidden" id="profileMenu">
+                    <a href="#profil" class="navbar-link hover:text-primary">Profil</a>
+                </li>
             </ul>
-          </li>
-        </ul>
-      </div>
+        </div>
     </nav>
-    <main class="container mx-auto mt-6 p-4">
-      <section id="home" class="mb-8">
-        <h2 class="text-3xl font-semibold text-green-600">
-          Selamat Datang di Dashboard Tracer Study
-        </h2>
-        <p class="mt-4">
-          Gunakan dashboard ini untuk melacak kemana alumni melanjutkan
-          pendidikan atau karir mereka.
-        </p>
-      </section>
-      <section id="data-alumni" class="mb-8">
-        <h2 class="text-3xl font-semibold text-green-600">Data Alumni</h2>
-        <table class="min-w-full bg-white border border-gray-300 mt-4">
-          <thead>
-            <tr>
-              <th class="py-2 px-4 border-b">Nama</th>
-              <th class="py-2 px-4 border-b">Tahun Lulus</th>
-              <th class="py-2 px-4 border-b">Jurusan</th>
-              <th class="py-2 px-4 border-b">Melanjutkan ke</th>
-              <th class="py-2 px-4 border-b">Pekerjaan</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Data alumni akan dimasukkan di sini -->
-          </tbody>
-        </table>
-      </section>
-      <section id="statistik" class="mb-8">
-        <h2 class="text-3xl font-semibold text-green-600">Statistik</h2>
-        <div id="chart-container" class="mt-4">
-          <canvas id="alumniChart"></canvas>
-        </div>
-      </section>
-      <section id="profil" class="mb-8 hidden">
-        <h2 class="text-3xl font-semibold text-green-600">Profil Pengguna</h2>
-        <div class="bg-white shadow-md rounded-lg p-6">
-          <div class="text-center mb-4">
-            <img
-              id="profilePicture"
-              src="default-profile.png"
-              alt="Profile Picture"
-              class="rounded-full w-32 h-32 mx-auto"
-            />
-            <h3 id="profileName" class="mt-4 text-2xl font-medium">
-              Nama Pengguna
-            </h3>
-            <p id="profileEmail" class="text-gray-600">email@example.com</p>
-          </div>
-          <div class="text-center">
-            <input
-              type="file"
-              id="uploadProfilePicture"
-              accept="image/*"
-              class="hidden"
-            />
-            <button
-              class="bg-green-600 text-white px-4 py-2 rounded"
-              onclick="document.getElementById('uploadProfilePicture').click();"
-            >
-              Ganti Foto Profil
-            </button>
-          </div>
-        </div>
-      </section>
-      <section id="kontak" class="mb-8">
-        <h2 class="text-3xl font-semibold text-green-600">Kontak</h2>
-        <p>
-          Untuk informasi lebih lanjut, hubungi kami di
-          <a
-            href="mailto:info@smk-tracerstudy.com"
-            class="text-green-600 underline"
-            >info@smk-tracerstudy.com</a
-          >.
-        </p>
-      </section>
+    <main class="container mx-auto mt-8 p-4">
+        <section id="home" class="mb-12">
+            <h2 class="section-title text-primary">Selamat Datang di Dashboard Tracer Study</h2>
+            <p class="mt-4 text-base text-gray-600">Gunakan dashboard ini untuk melacak kemana alumni melanjutkan pendidikan atau karir mereka.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <div class="card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Melanjutkan Pendidikan</h3>
+                    <p class="text-gray-600">Lihat data alumni yang melanjutkan ke perguruan tinggi.</p>
+                </div>
+                <div class="card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Karir Alumni</h3>
+                    <p class="text-gray-600">Informasi mengenai karir yang ditempuh oleh alumni.</p>
+                </div>
+                <div class="card p-6 bg-white">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Statistik Alumni</h3>
+                    <p class="text-gray-600">Analisis statistik alumni berdasarkan jurusan dan karir.</p>
+                </div>
+            </div>
+        </section>
+        <section id="data-alumni" class="mb-12">
+            <h2 class="section-title text-primary">Data Alumni</h2>
+            <table class="min-w-full bg-white mt-4 border border-gray-200">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="py-2 px-4 text-left text-gray-600">Nama</th>
+                        <th class="py-2 px-4 text-left text-gray-600">Tahun Lulus</th>
+                        <th class="py-2 px-4 text-left text-gray-600">Jurusan</th>
+                        <th class="py-2 px-4 text-left text-gray-600">Melanjutkan ke</th>
+                        <th class="py-2 px-4 text-left text-gray-600">Pekerjaan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data alumni akan dimasukkan di sini -->
+                </tbody>
+            </table>
+        </section>
+        <section id="statistik" class="mb-12">
+            <h2 class="section-title text-primary">Statistik</h2>
+            <div id="chart-container" class="mt-4">
+                <canvas id="alumniChart"></canvas>
+            </div>
+        </section>
+        <section id="profil" class="mb-12 hidden">
+            <h2 class="section-title text-primary">Profil Pengguna</h2>
+            <div class="bg-white shadow-sm rounded-lg p-6">
+                <div class="text-center mb-4">
+                    <img id="profilePicture" src="default-profile.png" alt="Profile Picture" class="profile-picture mx-auto">
+                    <h3 id="profileName" class="mt-4 text-xl font-medium text-gray-700">Nama Pengguna</h3>
+                    <p id="profileEmail" class="text-gray-500">email@example.com</p>
+                </div>
+                <div class="text-center">
+                    <input type="file" id="uploadProfilePicture" accept="image/*" class="hidden">
+                    <button class="btn-primary px-4 py-2 rounded" onclick="document.getElementById('uploadProfilePicture').click();">Ganti Foto Profil</button>
+                </div>
+            </div>
+        </section>
+        <section id="kontak" class="mb-12">
+            <h2 class="section-title text-primary">Kontak</h2>
+            <p class="mt-4 text-base text-gray-600">Untuk informasi lebih lanjut, hubungi kami di <a href="mailto:info@smk-tracerstudy.com" class="text-primary underline">info@smk-tracerstudy.com</a>.</p>
+        </section>
     </main>
-    <footer class="bg-gray-900 text-white text-center py-4">
-      <p>&copy; 2024 SMK PI Tracer Study</p>
+    <footer class="bg-white shadow-sm text-center py-6 mt-8">
+        <p class="text-gray-500">&copy; 2024 SMK Tracer Study</p>
     </footer>
-    <script src="scripts.js"></script>
-  </body>
+</body>
 </html>
